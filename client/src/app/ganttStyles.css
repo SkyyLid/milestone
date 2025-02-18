@@ -1,0 +1,32 @@
+._ganttTable_Header_7mmcq_1{
+  overflow-x: hidden;
+}
+._ganttTableWrapper_v4xjz_8{
+  max-width: 620px !important;
+  width: 620px ;  
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+} 
+ ._taskListHeaderAction_j1iwy_1, ._button_ts3e8_1, ._button_5sg45_1 {
+  display: none;
+}
+._ganttTable_HeaderSeparator_7mmcq_8{
+  display: none;
+}
+div[data-testid="table-column-header-resize-handle-Dependencies"]{
+  display: none;
+}
+div[data-testid="table-column-header-resize-handle-From"]{
+  display: hidden;
+}
+div[data-testid="table-column-header-undefined"], 
+div[data-testid="table-column-header-Dependencies"] {
+  display: none !important;  /* Hides the entire element */
+}
+._projectTop_19i2s_11, ._barHandle_hr87b_6, ._barRelationHandle_tmzzo_1 {
+  display: none;
+}
+div[data-testid="task-relation-handle-right-newProject"]{
+  display: none;
+}
