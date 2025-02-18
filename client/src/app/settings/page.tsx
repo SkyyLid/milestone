@@ -2,9 +2,8 @@
 
 import Header from "@/components/Header"
 
-type Props = {}
 
-const Settings = (props: Props) => {
+const Settings = () => {
   const userSettings = {
     username: "Johndoe",
     email: "example.com",

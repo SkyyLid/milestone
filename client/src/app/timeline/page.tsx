@@ -1,8 +1,8 @@
 "use client";
 
-import { useAppSelector } from "../../../redux";
+// import { useAppSelector } from "../../../redux";
 import { useGetProjectsQuery } from "@/state/api";
-import { DisplayOption, Gantt, ViewMode, Task } from "@wamra/gantt-task-react";
+import { DisplayOption, Gantt, ViewMode } from "@wamra/gantt-task-react";
 import React, { useMemo, useState } from "react";
 import "@wamra/gantt-task-react/dist/style.css";
 import Header from "@/components/Header";
@@ -10,7 +10,7 @@ import "../ganttStyles.css";
 type TaskTypeItems = "task" | "milestone" | "project";
 
 const Timeline = () => {
-  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+  // const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   const { data: projects, isError, isLoading } = useGetProjectsQuery();
 
   const [displayOptions, setDisplayOptions] = useState<DisplayOption>({

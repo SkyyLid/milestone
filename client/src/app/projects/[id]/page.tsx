@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ProjectHeader from "../ProjectHeader";
 import BoardView from "../BoardView/BoardView";
 import ListView from "../ListView/ListView";

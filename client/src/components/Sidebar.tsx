@@ -19,7 +19,6 @@ import {
   AlertTriangle,
   AlertOctagon,
   Layers3,
-  Key,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useAppDispatch, useAppSelector } from "../../redux";
