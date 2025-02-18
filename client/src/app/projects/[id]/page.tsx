@@ -8,11 +8,8 @@ import ListView from "../ListView/ListView";
 import TableView from "../TableView/TableView";
 import TimelineView from "../TimelineView/TimelineView";
 
-type PageProps = {
-  params: { id: string }; 
-};
-
-const Project = ({ params }: PageProps) => {
+// `params` will be automatically provided by Next.js
+const Project = ({ params }: { params: { id: string } }) => {
   const { id } = params;
   const [activeTab, setActiveTab] = useState("Board");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
