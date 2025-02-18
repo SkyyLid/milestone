@@ -8,16 +8,18 @@ import ListView from "../ListView/ListView";
 import TableView from "../TableView/TableView";
 import TimelineView from "../TimelineView/TimelineView";
 
-// Define the correct type for the `params` object
 interface ProjectProps {
-  params: { id: string }; // Expect `params` to contain `id` as a string
+  params: {
+    id: string;
+  };
 }
 
 const Project = ({ params }: ProjectProps) => {
   const { id } = params;
   const [activeTab, setActiveTab] = useState("Board");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
-
+  console.log(params);
+  console.log(id);
   return (
     <div>
       <ModalNewTask
