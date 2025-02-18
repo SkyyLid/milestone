@@ -41,4 +41,6 @@ const Project = ({ params }: Props) => {
   );
 };
 
-export default Project;
+export default function ProjectPage({ params }: { params: { id: string } }) {
+  return <Project params={params} />;
+}
