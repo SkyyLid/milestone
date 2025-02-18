@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import ProjectHeader from "../ProjectHeader";
+import ProjectHeader from "@/app/projects/ProjectHeader";
 import BoardView from "../BoardView/BoardView";
-import ListView from "../ListView/ListView";
-import TimelineView from "../TimelineView/TimelineView";
-import TableView from "../TableView/TableView";
 import ModalNewTask from "@/components/ModalNewTask";
+import ListView from "../ListView/ListView";
+import TableView from "../TableView/TableView";
+import TimelineView from "../TimelineView/TimelineView";
 
 type Props = {
   params: { id: string };
@@ -41,6 +41,4 @@ const Project = ({ params }: Props) => {
   );
 };
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
-  return <Project params={params} />;
-}
+export default Project;
