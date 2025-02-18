@@ -8,11 +8,11 @@ import ListView from "../ListView/ListView";
 import TableView from "../TableView/TableView";
 import TimelineView from "../TimelineView/TimelineView";
 
-type Props = {
-  params: { id: string };
+type PageProps = {
+  params: { id: string }; 
 };
 
-const Project = ({ params }: Props) => {
+const Project = ({ params }: PageProps) => {
   const { id } = params;
   const [activeTab, setActiveTab] = useState("Board");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
