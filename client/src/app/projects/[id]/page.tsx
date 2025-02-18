@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProjectHeader from "@/app/projects/ProjectHeader";
 import BoardView from "../BoardView/BoardView";
 import ModalNewTask from "@/components/ModalNewTask";
@@ -8,18 +8,30 @@ import ListView from "../ListView/ListView";
 import TableView from "../TableView/TableView";
 import TimelineView from "../TimelineView/TimelineView";
 
-interface ProjectProps {
-  params: {
-    id: string;
-  };
-}
 
+type ProjectProps = {
+  params: Promise<{ id: string }>; 
+}
 const Project = ({ params }: ProjectProps) => {
-  const { id } = params;
+  const [resolvedParams, setResolvedParams] = useState<{ id: string } | null>(null);
   const [activeTab, setActiveTab] = useState("Board");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
-  console.log(params);
-  console.log(id);
+  useEffect(() => {
+    const resolveParams = async () => {
+      try {
+        const resolved = await params;
+        setResolvedParams(resolved);
+      } catch (error) {
+        console.error("Error resolving params:", error);
+      }
+    };
+    
+    resolveParams();
+  }, [params]);
+  
+  if (!resolvedParams) return <div>Loading...</div>;
+  
+  const { id } = resolvedParams;
   return (
     <div>
       <ModalNewTask
