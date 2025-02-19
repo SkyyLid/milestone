@@ -10,7 +10,6 @@ import taskRoutes from "./routes/taskRoute";
 import searchRoutes from "./routes/searchRoutes";
 import userRoutes from "./routes/userRoutes";
 import teamRoutes from "./routes/teamRoutes";
-
 // CONFIGURATIONS
 dotenv.config();
 const app = express();
