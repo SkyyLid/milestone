@@ -73,7 +73,17 @@ export interface Team {
 }
 
 export const api = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
+    prepareHeaders: async (headers) => {
+      const session = await fetchAuthSession();
+      const { accessToken } = session.tokens ?? {};
+      if (accessToken) {
+        headers.set("Authorization", `Bearer ${accessToken}`);
+      }
+      return headers;
+    },
+  }),
   reducerPath: "api",
   tagTypes: ["Projects", "Tasks", "Users", "Teams"],
   endpoints: (build) => ({
@@ -84,7 +94,7 @@ export const api = createApi({
           const session = await fetchAuthSession();
           if (!session) throw new Error("No session found");
           const { userSub } = session;
-          // const { accessToken } = session.tokens ?? {};
+          const { accessToken } = session.tokens ?? {};
 
           const userDetailsResponse = await fetchWithBQ(`users/${userSub}`);
           const userDetails = userDetailsResponse.data as User;
