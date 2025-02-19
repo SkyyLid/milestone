@@ -37,7 +37,6 @@ const taskColumns: GridColDef[] = [
     width: 150,
     valueFormatter: (params: GridCellParams) => {
       const value = params; 
-      console.log(typeof value);
       if (typeof value === "string") {
         const date = format (new Date(value), "P");
         return date;
@@ -87,13 +86,11 @@ const HomePage = () => {
     },
     {},
   );
-  console.log(statusCount);
 
   const projectStatus = Object.keys(statusCount).map((key) => ({
     name: key,
     count: statusCount[key],
   }));
-  console.log(projectStatus);   
   const chartColors = isDarkMode
     ? {
         bar: "#8884d8",
