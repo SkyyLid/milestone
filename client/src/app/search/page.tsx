@@ -46,24 +46,24 @@ const Search = () => {
         {!isLoading && !isError && searchResults && (
           <div>
             {searchResults.tasks && searchResults.tasks?.length > 0 && (
-              <h2>Tasks</h2>
+              <h2 className= "font-semibold text-2xl pb-5 dark:text-white">Tasks</h2>
             )}
             {searchResults.tasks?.map((task) => (
               <TaskCard key={task.id} task={task} />
             ))}
 
             {searchResults.projects && searchResults.projects?.length > 0 && (
-              <h2>Projects</h2>
+              <h2 className= "font-semibold text-2xl pb-5 dark:text-white">Projects</h2>
             )}
             {searchResults.projects?.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
 
             {searchResults.users && searchResults.users?.length > 0 && (
-              <h1>Users</h1>
+              <h1 className= "font-semibold text-2xl pb-5 dark:text-white">Users</h1>
             )}
             {searchResults.users?.map((user) => (
-              <UserCard key={user.userId} user={user} />
+              <UserCard key={user.id} user={user} />
             ))}
           </div>
         )}

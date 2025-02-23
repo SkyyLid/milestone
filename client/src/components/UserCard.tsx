@@ -12,7 +12,7 @@ const UserCard = ({ user }: Props) => {
       {user.profilePictureUrl && (
         <div className="size-9">
           <Image
-            src={`https://pm-s3-bucket-imagez.s3.ap-south-1.amazonaws.com/${user.profilePictureUrl!}`}
+            src={`/${user.profilePictureUrl}` || `/i1.jpeg`}
             alt="profile picture"
             width={32}
             height={32}

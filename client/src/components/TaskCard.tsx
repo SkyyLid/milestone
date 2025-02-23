@@ -15,7 +15,7 @@ const TaskCard = ({ task }: Props) => {
     : "";
 
   const numberOfComments = (task.comments && task.comments.length) || 0;
-
+  console.log(task.id, task.comments);
   const PriorityTag = ({ priority }: { priority: Task["priority"] }) => (
     <div
       className={`rounded-full px-3 py-1 text-xs font-semibold ${
@@ -73,6 +73,7 @@ const TaskCard = ({ task }: Props) => {
           <div className="text-xs text-gray-600 dark:text-neutral-400 mt-1">
             {task.tags.split(",").map((tag, index, array) => (
               <>
+              {console.log(index)}
                 <span key={index}>{tag.trim()}</span>
                 {index < array.length - 1 && ", "}
               </>
