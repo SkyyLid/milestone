@@ -14,18 +14,18 @@ datasource db {
 }
 
 model User {
-  userId            Int     @id @default(autoincrement())
-  cognitoId         String  @unique
-  username          String  @unique
-  profilePictureUrl String?
-  teamId            Int?
+  id          Int     @id @default(autoincrement())
+  username    String
+  email       String  @unique
+  password    String
+  profile_pic String? @default("defaultpfp.jpg")
+  recovery_code String
 
   authoredTasks   Task[]           @relation("TaskAuthor")
   assignedTasks   Task[]           @relation("TaskAssignee")
   taskAssignments TaskAssignment[]
   attachments     Attachment[]
   comments        Comment[]
-  team            Team?            @relation(fields: [teamId], references: [id])
 }
 
 model Team {
@@ -34,7 +34,6 @@ model Team {
   productOwnerUserId   Int?
   projectManagerUserId Int?
   projectTeams         ProjectTeam[]
-  user                 User[]
 }
 
 model Project {
@@ -64,14 +63,13 @@ model Task {
   tags           String?
   startDate      DateTime?
   dueDate        DateTime?
-  points         Int?
   projectId      Int
   authorUserId   Int
   assignedUserId Int?
 
   project         Project          @relation(fields: [projectId], references: [id])
-  author          User             @relation("TaskAuthor", fields: [authorUserId], references: [userId])
-  assignee        User?            @relation("TaskAssignee", fields: [assignedUserId], references: [userId])
+  author          User             @relation("TaskAuthor", fields: [authorUserId], references: [id])
+  assignee        User?            @relation("TaskAssignee", fields: [assignedUserId], references: [id])
   taskAssignments TaskAssignment[]
   attachments     Attachment[]
   comments        Comment[]
@@ -82,7 +80,7 @@ model TaskAssignment {
   userId Int
   taskId Int
 
-  user User @relation(fields: [userId], references: [userId])
+  user User @relation(fields: [userId], references: [id])
   task Task @relation(fields: [taskId], references: [id])
 }
 
@@ -94,7 +92,7 @@ model Attachment {
   uploadedById Int
 
   task       Task @relation(fields: [taskId], references: [id])
-  uploadedBy User @relation(fields: [uploadedById], references: [userId])
+  uploadedBy User @relation(fields: [uploadedById], references: [id])
 }
 
 model Comment {
@@ -104,5 +102,5 @@ model Comment {
   userId Int
 
   task Task @relation(fields: [taskId], references: [id])
-  user User @relation(fields: [userId], references: [userId])
+  user User @relation(fields: [userId], references: [id])
 }

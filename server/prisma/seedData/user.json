@@ -1,122 +1,162 @@
 [
   {
+    "id": 1,
     "username": "AliceJones",
-    "teamId": 1,
-    "profilePictureUrl": "p1.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174001"
+    "email": "alicejones751@gmail.com",
+    "password": "",
+    "profile_pic": "p1.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 2,
     "username": "BobSmith",
-    "teamId": 2,
-    "profilePictureUrl": "p2.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174002"
+    "email": "bobsmith751@gmail.com",
+    "password": "",
+    "profile_pic": "p2.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 3,
     "username": "CarolWhite",
-    "teamId": 3,
-    "profilePictureUrl": "p3.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174003"
+    "email": "carolwhite751@gmail.com",
+    "password": "",
+    "profile_pic": "p3.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 4,
     "username": "DaveBrown",
-    "teamId": 4,
-    "profilePictureUrl": "p4.jpeg",
-    "cognitoId": "213b7530-1031-70e0-67e9-fe0805e18fb3"
+    "email": "davebrown751@gmail.com",
+    "password": "",
+    "profile_pic": "p4.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 5,
     "username": "EveClark",
-    "teamId": 5,
-    "profilePictureUrl": "p5.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174005"
+    "email": "eveclark751@gmail.com",
+    "password": "",
+    "profile_pic": "p5.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 6,
     "username": "FrankWright",
-    "teamId": 1,
-    "profilePictureUrl": "p6.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174006"
+    "email": "frankwright751@gmail.com",
+    "password": "",
+    "profile_pic": "p6.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 7,
     "username": "GraceHall",
-    "teamId": 2,
-    "profilePictureUrl": "p7.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174007"
+    "email": "gracehall751@gmail.com",
+    "password": "",
+    "profile_pic": "p7.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 8,
     "username": "HenryAllen",
-    "teamId": 3,
-    "profilePictureUrl": "p8.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174008"
+    "email": "henryallen751@gmail.com",
+    "password": "",
+    "profile_pic": "p8.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 9,
     "username": "IdaMartin",
-    "teamId": 4,
-    "profilePictureUrl": "p9.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174009"
+    "email": "idamartin751@gmail.com",
+    "password": "",
+    "profile_pic": "p9.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 10,
     "username": "JohnDoe",
-    "teamId": 5,
-    "profilePictureUrl": "p10.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174010"
+    "email": "johndoe751@gmail.com",
+    "password": "",
+    "profile_pic": "p10.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 11,
     "username": "LauraAdams",
-    "teamId": 1,
-    "profilePictureUrl": "p11.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174011"
+    "email": "lauraadams751@gmail.com",
+    "password": "",
+    "profile_pic": "p11.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 12,
     "username": "NormanBates",
-    "teamId": 2,
-    "profilePictureUrl": "p12.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174012"
+    "email": "normanbates751@gmail.com",
+    "password": "",
+    "profile_pic": "p12.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 13,
     "username": "OliviaPace",
-    "teamId": 3,
-    "profilePictureUrl": "p13.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174013"
+    "email": "oliviapace751@gmail.com",
+    "password": "",
+    "profile_pic": "p13.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 14,
     "username": "PeterQuill",
-    "teamId": 4,
-    "profilePictureUrl": "p1.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174014"
+    "email": "peterquill751@gmail.com",
+    "password": "",
+    "profile_pic": "p1.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 15,
     "username": "QuincyAdams",
-    "teamId": 5,
-    "profilePictureUrl": "p2.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174015"
+    "email": "quincyadams751@gmail.com",
+    "password": "",
+    "profile_pic": "p2.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 16,
     "username": "RachelGreen",
-    "teamId": 1,
-    "profilePictureUrl": "p3.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174016"
+    "email": "rachelgreen751@gmail.com",
+    "password": "",
+    "profile_pic": "p3.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 17,
     "username": "SteveJobs",
-    "teamId": 2,
-    "profilePictureUrl": "p4.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174017"
+    "email": "stevejobs751@gmail.com",
+    "password": "",
+    "profile_pic": "p4.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 18,
     "username": "TinaFey",
-    "teamId": 3,
-    "profilePictureUrl": "p5.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174018"
+    "email": "tinafey751@gmail.com",
+    "password": "",
+    "profile_pic": "p5.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 19,
     "username": "UrsulaMonroe",
-    "teamId": 4,
-    "profilePictureUrl": "p6.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174019"
+    "email": "ursulamonroe751@gmail.com",
+    "password": "",
+    "profile_pic": "p6.jpeg",
+    "recovery_code": "12345678"
   },
   {
+    "id": 20,
     "username": "VictorHugo",
-    "teamId": 5,
-    "profilePictureUrl": "p7.jpeg",
-    "cognitoId": "123e4567-e89b-12d3-a456-426614174020"
+    "email": "victorhugo751@gmail.com",
+    "password": "",
+    "profile_pic": "p7.jpeg",
+    "recovery_code": "12345678"
   }
 ]

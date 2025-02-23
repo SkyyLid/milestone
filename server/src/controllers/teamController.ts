@@ -10,12 +10,12 @@ export const getTeams = async (req: Request, res: Response): Promise<void> => {
     const teamsWithUsernames = await Promise.all(
       teams.map(async (team: any) => {
         const productOwner = await prisma.user.findUnique({
-          where: { userId: team.productOwnerUserId! },
+          where: { id: team.productOwnerUserId! },
           select: { username: true },
         });
 
         const projectManager = await prisma.user.findUnique({
-          where: { userId: team.projectManagerUserId! },
+          where: { id: team.projectManagerUserId! },
           select: { username: true },
         });
 

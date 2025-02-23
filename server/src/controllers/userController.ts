@@ -13,11 +13,12 @@ export const getUsers = async (req: Request, res: Response): Promise<void> => {
 };
 
 export const getUser = async (req: Request, res: Response): Promise<void> => {
-  const {cognitoId} = req.params;
+  const {param} = req.params;
+  const id = Number(param);
   try {
     const user = await prisma.user.findUnique({
       where: {
-        cognitoId: cognitoId
+        id: id
       }
     });
     res.json(user);
@@ -30,16 +31,19 @@ export const postUser = async (req: Request, res: Response) => {
   try {
     const {
       username,
-      cognitoId,
-      profilePictureUrl = "i1.jpeg",
-      teamId = 1,
+      email,
+      password,
+      profile_pic = "defaultpfp.jpg",
+      recoveryCode = "",
     } = req.body;
+    
     const newUser = await prisma.user.create({
       data: {
         username,
-        cognitoId,
-        profilePictureUrl,
-        teamId,
+        email,
+        password,
+        profile_pic,
+        recovery_code: recoveryCode,
       },
     });
     res.json({ message: "User created successfully:", newUser });
