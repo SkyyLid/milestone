@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
-import { toast } from "react-toastify";
 
 const prisma = new PrismaClient();
 
@@ -29,7 +28,7 @@ export const signup = async (req: Request, res: Response) => {
         username: username,
         email: email,
         password: hashedPassword,
-        recovery_code: hashedRecoveryCode
+        recovery_code: hashedRecoveryCode,
       },
     });
     res.status(200).json({ message: "User registered successfully" }),
@@ -52,11 +51,13 @@ export const login = async (req: Request, res: Response): Promise<void> => {
         email: email,
       },
     });
+    if (!user) {
+      res.status(400).json({ message: "Invalid email or password" });
+      return;
+    }
 
-    const isPasswordValid = await bcrypt.compare(
-      password,
-      user?.password as string
-    );
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
     if (!isPasswordValid) {
       res.status(400).json({ message: "Invalid credentials" });
       return;
@@ -70,7 +71,6 @@ export const login = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-// const logout = async (req, res) => {};
 
 export const forgotPassword = async (req: Request, res: Response) => {
   const { email } = req.body;
@@ -85,7 +85,6 @@ export const forgotPassword = async (req: Request, res: Response) => {
       res.status(400).json({ message: "User not found" });
       return;
     }
-    
   } catch (error) {
     console.log("Error in forgotPassword ", error);
     res.status(500).json({

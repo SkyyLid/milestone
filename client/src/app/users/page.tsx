@@ -23,8 +23,9 @@ const customToolbar = () => {
 };
 
 const columns: GridColDef[] = [
-  { field: "userId", headerName: "ID", width: 100 },
+  { field: "id", headerName: "ID", width: 100 },
   { field: "username", headerName: "Username", width: 150 },
+  { field: "email", headerName: "Email", width: 200 },
   {
     field: "profilePicUrl",
     headerName: "Profile Picture",
@@ -34,7 +35,7 @@ const columns: GridColDef[] = [
         <div className="flex h-full w-full items-center justify-center">
           <div className="size-9">
             <Image
-              src={`https://pm-s3-bucket-imagez.s3.ap-south-1.amazonaws.com/${params.row.profilePictureUrl ? params.row.profilePictureUrl : " "}`}
+              src={`/${params.row.profile_pic ? params.row.profile_pic : ""}`}
               alt={params.row.username}
               width={100}
               height={50}
@@ -60,7 +61,7 @@ const Users = () => {
         <DataGrid
           rows={users || ""}
           columns={columns}
-          getRowId={(row) => row.userId}
+          getRowId={(row) => row.id}
           pagination
           slots={{
             toolbar: customToolbar,

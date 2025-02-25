@@ -175,7 +175,7 @@ const Task = ({ task }: TaskProps) => {
     >
       {task.attachments && task.attachments.length > 0 && (
         <Image
-          src={`https://pm-s3-bucket-imagez.s3.ap-south-1.amazonaws.com/${task.attachments[0].fileURL}`}
+          src={`/${task.attachments[0].fileURL}`}
           alt={task.attachments[0].fileName}
           width={400}
           height={200}
@@ -204,11 +204,6 @@ const Task = ({ task }: TaskProps) => {
         </div>
         <div className="my-3 flex justify-between">
           <h4 className="text-md font-bold dark:text-white">{task.title}</h4>
-          {typeof task.points === "number" && (
-            <div className="text-xs font-semibold dark:text-white">
-              {task.points} pts
-            </div>
-          )}
         </div>
         <div className="text-xs text-gray-500 dark:text-neutral-200">
           {formattedStartDate && <span>{formattedStartDate} - </span>}
@@ -224,8 +219,8 @@ const Task = ({ task }: TaskProps) => {
           <div className="flex -space-x-[6px] overflow-hidden">
             {task.assignee && (
               <Image
-                key={task.assignee.userId}
-                src={`https://pm-s3-bucket-imagez.s3.ap-south-1.amazonaws.com/${task.assignee.profilePictureUrl!}`}
+                key={task.assignee.id}
+                src={`/${task.assignee?.profile_pic}`}
                 alt={task.assignee.username || ""}
                 width={30}
                 height={30}
@@ -234,8 +229,8 @@ const Task = ({ task }: TaskProps) => {
             )}
             {task.author && (
               <Image
-                key={task.author.userId}
-                src={`https://pm-s3-bucket-imagez.s3.ap-south-1.amazonaws.com/${task.author.profilePictureUrl!}`}
+                key={task.author.id}
+                src={`/${task.author?.profile_pic}`}
                 alt={task.author.username || ""}
                 width={30}
                 height={30}

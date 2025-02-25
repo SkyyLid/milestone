@@ -49,7 +49,7 @@ const Sidebar = () => {
     currPath === "/" ||
     currPath === "/signup" ||
     currPath === "/forgot-password" ||
-    currPath === "login"
+    currPath === "/login"
   ) {
     return null;
   }
@@ -174,7 +174,7 @@ const Sidebar = () => {
               console.log("clicked");
             }}
           >
-            Sign out
+            Logout
           </button>
         </div>
       </div>

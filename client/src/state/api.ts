@@ -26,7 +26,7 @@
     id?: number;
     username?: string;
     email?: string;
-    profilePictureUrl?: string;
+    profile_pic?: string;
     recovery_code: string;
   }
 
@@ -67,6 +67,10 @@
     teamName: string;
     productOwnerUserId?: number;
     projectManagerUserId?: number;
+  }
+  export interface LoginResponse {
+    token: string;
+    user: User;   
   }
 
   export const api = createApi({
@@ -124,6 +128,13 @@
           body: user,
         }),
         invalidatesTags: ["Users"],
+      }),
+      loginUser: build.mutation<LoginResponse, { email: string; password: string }>({
+        query: (credentials) => ({
+          url: "login",
+          method: "POST",
+          body: credentials,
+        }),
       }),      
       getUsers: build.query<User[], void>({
         query: () => "users",
@@ -150,4 +161,5 @@
     useGetTeamsQuery,
     useGetTasksByUserQuery,
     useCreateUserMutation,
+    useLoginUserMutation,
   } = api;

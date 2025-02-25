@@ -2,7 +2,9 @@ import { useAppSelector } from "../../../../redux";
 import Header from "@/components/Header";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
 import { useGetTasksQuery } from "@/state/api";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { DataGrid, GridCellParams, GridColDef } from "@mui/x-data-grid";
+import { format } from "date-fns";
+import { useEffect } from "react";
 
 type Props = {
   id: string;
@@ -44,23 +46,41 @@ const columns: GridColDef[] = [
     field: "startDate",
     headerName: "Start Date",
     width: 130,
+    valueFormatter: (params: GridCellParams) => {
+      const value = params;
+      if (typeof value === "string") {
+        const date = format(new Date(value), "P");
+        return date;
+      } else {
+        return "Not set";
+      }
+    },
   },
   {
     field: "dueDate",
     headerName: "Due Date",
     width: 130,
+    valueFormatter: (params: GridCellParams) => {
+      const value = params;
+      if (typeof value === "string") {
+        const date = format(new Date(value), "P");
+        return date;
+      } else {
+        return "Not set";
+      }
+    },
   },
   {
     field: "author",
     headerName: "Author",
     width: 150,
-    renderCell: (params) => params.value?.author || "Unknown",
+    renderCell: (params) => params.row?.author?.username || "Unknown",
   },
   {
     field: "assignee",
     headerName: "Assignee",
     width: 150,
-    renderCell: (params) => params.value?.assignee || "Unassigned",
+    renderCell: (params) => params.row?.assignee?.username || "Unassigned",
   },
 ];
 
@@ -76,7 +96,7 @@ const TableView = ({ id, setIsModalNewTaskOpen }: Props) => {
   if (error || !tasks) return <div>An error occurred while fetching tasks</div>;
 
   return (
-    <div className="h-[540px] w-full px-4 pb-8 xl:px-6 dark:bg-dark-secondary">
+    <div className="h-[540px] w-full px-4 pb-8 dark:bg-dark-secondary xl:px-6">
       <div className="pt-5">
         <Header
           name="Table"

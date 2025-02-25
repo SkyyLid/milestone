@@ -5,13 +5,10 @@ import Header from "@/components/Header";
 import ModalNewTask from "@/components/ModalNewTask";
 import TaskCard from "@/components/TaskCard";
 import { dataGridClassNames, dataGridSxStyles } from "@/lib/utils";
-import {
-  Priority,
-  Task,
-  useGetTasksByUserQuery,
-} from "@/state/api";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
-import React, { useState } from "react";
+import { Priority, Task, useGetTasksByUserQuery } from "@/state/api";
+import { DataGrid, GridCellParams, GridColDef } from "@mui/x-data-grid";
+import { format } from "date-fns";
+import { useState } from "react";
 
 type Props = {
   priority: Priority;
@@ -52,23 +49,41 @@ const columns: GridColDef[] = [
     field: "startDate",
     headerName: "Start Date",
     width: 130,
+    valueFormatter: (params: GridCellParams) => {
+      const value = params;
+      if (typeof value === "string") {
+        const date = format(new Date(value), "P");
+        return date;
+      } else {
+        return "Not set";
+      }
+    },
   },
   {
     field: "dueDate",
     headerName: "Due Date",
     width: 130,
+    valueFormatter: (params: GridCellParams) => {
+      const value = params;
+      if (typeof value === "string") {
+        const date = format(new Date(value), "P");
+        return date;
+      } else {
+        return "Not set";
+      }
+    },
   },
   {
     field: "author",
     headerName: "Author",
     width: 150,
-    renderCell: (params) => params.value.username || "Unknown",
+    renderCell: (params) => params.row?.author?.username || "Unknown",
   },
   {
     field: "assignee",
     headerName: "Assignee",
     width: 150,
-    renderCell: (params) => params.value.username || "Unassigned",
+    renderCell: (params) => params.row?.assignee?.username || "Unassigned",
   },
 ];
 
@@ -76,10 +91,14 @@ const ReusablePriorityPage = ({ priority }: Props) => {
   const [view, setView] = useState("list");
   const [isModalNewTaskOpen, setIsModalNewTaskOpen] = useState(false);
 
-  const userId = 10;
-  const { data: tasks, isLoading, isError: isTasksError} = useGetTasksByUserQuery(userId || 0,{
+  const userId = 20;
+  const {
+    data: tasks,
+    isLoading,
+    isError: isTasksError,
+  } = useGetTasksByUserQuery(userId || 0, {
     skip: userId === null,
-  })
+  });
 
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
@@ -109,7 +128,9 @@ const ReusablePriorityPage = ({ priority }: Props) => {
       <div className="mb-4 flex justify-start">
         <button
           className={`px-4 py-2 ${
-            view === "list" ? "bg-gray-300" : "bg-white"
+            view === "list"
+              ? "bg-gray-300 dark:bg-black dark:text-white"
+              : "bg-white dark:bg-dark-tertiary dark:text-white"
           } rounded-l`}
           onClick={() => setView("list")}
         >
@@ -117,7 +138,9 @@ const ReusablePriorityPage = ({ priority }: Props) => {
         </button>
         <button
           className={`px-4 py-2 ${
-            view === "table" ? "bg-gray-300" : "bg-white"
+            view === "table"
+              ? "bg-gray-300 dark:bg-black dark:text-white"
+              : "bg-white dark:bg-dark-tertiary dark:text-white"
           } rounded-l`}
           onClick={() => setView("table")}
         >

@@ -15,6 +15,7 @@ const TaskCard = ({ task }: Props) => {
     : "";
 
   const numberOfComments = (task.comments && task.comments.length) || 0;
+  console.log(numberOfComments);
   console.log(task.id, task.comments);
   const PriorityTag = ({ priority }: { priority: Task["priority"] }) => (
     <div
